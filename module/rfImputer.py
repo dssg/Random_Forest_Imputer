@@ -417,6 +417,5 @@ class rfImputer(object):
         #     for idx, imp in zip(self.missing[var], self.imputed_values[var]):
         #         out_df[var].iloc[idx] = imp
         for var in iterator:
-            out_df[var].iloc[self.missing[var]] = self.imputed_values[var]
-
+            out_df.loc[self.missing[var],var] = self.imputed_values[var]
         return out_df
